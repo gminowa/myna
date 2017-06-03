@@ -1,6 +1,7 @@
 package main
 
-import "github.com/jpki/myna/libmyna"
+//import "github.com/jpki/myna/libmyna"
+import "github.com/gminowa/myna/libmyna"
 
 import (
 	"crypto/rsa"

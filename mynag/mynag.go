@@ -1,6 +1,7 @@
 package main
 
-import "github.com/jpki/myna/libmyna"
+//import "github.com/jpki/myna/libmyna"
+import "github.com/gminowa/myna/libmyna"
 
 import (
 	"crypto/x509"
@@ -114,7 +115,8 @@ mattn ware の go-gtk
 かわいいウサギのイラストはいらすとやの著作物です
 `
 	dialog.SetComments(comments)
-	dialog.SetWebsite("https://github.com/jpki/myna")
+//	dialog.SetWebsite("https://github.com/jpki/myna")
+	dialog.SetWebsite("https://github.com/gminowa/myna")
 	license, _ := Asset("../LICENSE")
 	dialog.SetLicense(string(license))
 	dialog.SetWrapLicense(true)
