@@ -88,14 +88,19 @@ func GetCardInfo(c *cli.Context, pin string) (map[string]string, error) {
 	asn1.Unmarshal(data[1:], &number)
 
 	reader.SelectEF("00 02")
-	data = reader.ReadBinary(5)
-	if len(data) != 5 {
+//	data = reader.ReadBinary(5)
+//	if len(data) != 5 {
+	data = reader.ReadBinary(3)
+	if len(data) != 3 {
 		return nil, errors.New("Error at ReadBinary()")
 	}
-	data_size := uint16(data[3])<<8 | uint16(data[4])
-	data = reader.ReadBinary(5 + data_size)
+//	data_size := uint16(data[3])<<8 | uint16(data[4])
+//	data = reader.ReadBinary(5 + data_size)
+	data_size := uint16(data[2])
+	data = reader.ReadBinary(3 + data_size)
 	var attr [5]asn1.RawValue
-	pos := 5
+//	pos := 5
+	pos := 3
 	for i := 0; i < 5; i++ {
 		asn1.Unmarshal(data[pos:], &attr[i])
 		pos += len(attr[i].FullBytes)
